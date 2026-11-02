@@ -36,4 +36,8 @@ keine 10-Minuten-Werte, kein Radar-Niederschlag. Die Trefferquoten gelten für e
 
 ## Windows (GitHub Actions)
 
-Wird nach dem ersten Push eingetragen.
+Lauf https://github.com/panoherbe/odlscan/actions/runs/41533297955 (02.11.2026, 22:00 UTC, erster Push): alle sechs
+Jobs erfolgreich. Unter `windows-latest` (`platform win32`): Python 3.11.9, 3.12.10 und 3.13.17, je **13 Tests
+grün** in 0,22–0,23 s; unter `ubuntu-latest` mit Python 3.11–3.13 ebenso. Getestet werden dort die Verfahren mit
+synthetischen Reihen und Beispieldateien im Format der Quellen, ohne Netzzugriff; der vollständige Lauf auf den
+echten Daten (oben) lief unter Linux.
