@@ -1,0 +1,11 @@
+odlscan
+Copyright 2026 Panagiotis Herbe
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The measured results in nachweis/ are derived from open data:
+- Bundesamt für Strahlenschutz (BfS), ODL-Messnetz, Datenlizenz Deutschland – Namensnennung – Version 2.0
+  (https://www.govdata.de/dl-de/by-2-0), via https://www.imis.bfs.de/ogc/opendata/ows
+- Deutscher Wetterdienst (DWD), Open Data, CC BY 4.0 (https://www.dwd.de/copyright),
+  via https://opendata.dwd.de/climate_environment/CDC/
+Raw data are not part of this repository; `odlscan holen` downloads them.

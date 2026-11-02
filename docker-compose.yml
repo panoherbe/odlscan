@@ -1,0 +1,10 @@
+name: odlscan
+services:
+  odlscan:
+    build: .
+    volumes:
+      - ./daten:/daten
+      - ./nachweis:/nachweis
+  test:
+    build: .
+    entrypoint: ["python", "-m", "pytest", "-q", "tests"]

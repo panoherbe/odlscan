@@ -1,0 +1,22 @@
+[project]
+name = "odlscan"
+version = "0.1.0"
+description = "Trend and plausibility analysis on open gamma dose rate (ODL) data of the German Federal Office for Radiation Protection (prototype)"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26"]
+
+[project.optional-dependencies]
+plots = ["matplotlib>=3.8"]
+test = ["pytest>=8"]
+
+[project.scripts]
+odlscan = "odlscan.cli:main"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["odlscan"]
