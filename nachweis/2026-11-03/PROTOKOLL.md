@@ -9,7 +9,7 @@ Bericht; was korrigiert wurde, steht in Abschnitt 8 von `BERICHT.md`.
 | | |
 |---|---|
 | Linux | Server mit Ubuntu 24.04.5 LTS, 16 Kerne, 62 GB Arbeitsspeicher, Grafikkarte NVIDIA GeForce RTX 3060 mit 12 GB (`nvidia-smi`, 03.11.2026; von odlscan nicht genutzt, die Auswertung läuft auf der CPU); Docker-Image `python:3.12-slim` (Python 3.12.13, NumPy 2.5.4, Matplotlib 3.11.2; beide Bibliotheken seit 0.2.0 im `Dockerfile` auf diese Versionen festgelegt) |
-| Windows | Tests in GitHub Actions auf `windows-latest` (und `ubuntu-latest`), Python 3.11, 3.12 und 3.13, bei jedem Push: Workflow `.github/workflows/tests.yml`. Das ist ein CI-Lauf auf GitHubs Windows-Server, kein eigener Windows-Rechner. Für 0.1.0 grün (Lauf 41533297955, 13 Tests); der Lauf für 0.2.0 startet mit dem Push dieser Fassung und wird hier nachgetragen. |
+| Windows | Tests in GitHub Actions auf `windows-latest` (und `ubuntu-latest`), Python 3.11, 3.12 und 3.13, bei jedem Push: Workflow `.github/workflows/tests.yml`. Das ist ein CI-Lauf auf GitHubs Windows-Server, kein eigener Windows-Rechner. Für 0.2.0 grün: Lauf 41701987286 vom 03.11.2026 (Commit `790b771`), alle sechs Jobs, je 16 Tests (Abschnitt „Windows“ unten); für 0.1.0: Lauf 41533297955 vom 02.11.2026, je 13 Tests. |
 | Daten | Rohablage `raw/2026-11-02/` vom 02.11.2026: BfS-WFS `https://www.imis.bfs.de/ogc/opendata/ows` (Datenlizenz Deutschland – Namensnennung – 2.0), DWD Open Data `https://opendata.dwd.de/climate_environment/CDC/` (CC BY 4.0) |
 
 ## Schritte und Ergebnisse
@@ -42,3 +42,11 @@ Der Bericht `BERICHT.pdf` ist aus `BERICHT.md` gerendert, mit diesem Protokoll a
 
 Keine langfristigen Trends (ein Jahr Tageswerte), keine echten Plausibilisierungsentscheidungen (nicht öffentlich),
 keine 10-Minuten-Werte, kein Radar-Niederschlag. Die Trefferquoten gelten für eingebaute Fehler.
+
+## Windows (GitHub Actions)
+
+Lauf https://github.com/panoherbe/odlscan/actions/runs/41701987286 (03.11.2026, 19:18–19:19 UTC, Commit `790b771`, Push
+von odlscan 0.2.0): alle sechs Jobs erfolgreich. Unter `windows-latest` (`platform win32`): Python 3.11.9, 3.12.10 und
+3.13.17, je **16 Tests grün** in 0,21–0,43 s; unter `ubuntu-latest` mit Python 3.11.17, 3.12.15 und 3.13.17 ebenso
+(0,19–0,40 s). Getestet werden dort die Verfahren mit synthetischen Reihen und Beispieldateien im Format der Quellen,
+ohne Netzzugriff; der vollständige Lauf auf den echten Daten (oben) lief unter Linux.
