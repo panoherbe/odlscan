@@ -27,14 +27,15 @@ Rundgangs weiter unten.</sub>
 | Offen und weiterverwendbar | Apache 2.0, mit GPL v3 vereinbar; reines Python mit NumPy und Matplotlib |
 
 Messweg, Verfahren und alle Tabellen: [Bericht zu odlscan 0.2.0](nachweis/2026-11-03/BERICHT.md)
-([als PDF mit Testprotokoll](nachweis/2026-11-03/BERICHT.pdf), 10 Seiten) und
+([als PDF mit Testprotokoll](https://github.com/panoherbe/odlscan/raw/main/nachweis/2026-11-03/BERICHT.pdf), 10 Seiten) und
 [Testprotokoll](nachweis/2026-11-03/PROTOKOLL.md). Was gegenüber der ersten Fassung vom 02.11.2026 korrigiert
 wurde, steht offen in Abschnitt 8 des Berichts.
 
 ## In zwei Minuten selbst prüfen
 
-1. **Den Bericht lesen:** [PDF, 10 Seiten](nachweis/2026-11-03/BERICHT.pdf) – GitHub zeigt es direkt im Browser an.
-   Auf Seite 1 steht alles Wichtige auf einen Blick.
+1. **Den Bericht lesen:** [im Browser](nachweis/2026-11-03/BERICHT.md) – ganz oben steht alles Wichtige auf einen
+   Blick – oder [als PDF mit Testprotokoll herunterladen](https://github.com/panoherbe/odlscan/raw/main/nachweis/2026-11-03/BERICHT.pdf)
+   (10 Seiten).
 2. **Die Tests ansehen:** der [Lauf unter Windows und Ubuntu](https://github.com/panoherbe/odlscan/actions/runs/41701987286)
    vom 03.11.2026, sechs Jobs, je 16 Tests.
 3. **Selbst auswerten**, mit Python 3.11 oder neuer:
