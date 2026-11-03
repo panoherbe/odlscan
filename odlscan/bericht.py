@@ -425,7 +425,8 @@ def text(r: dict, abb: list[str]) -> str:
     lz = r["laufzeit_s"]
     ab = d.get("abruf", {})
     nr = {n: i + 1 for i, n in enumerate(abb)}
-    bild = lambda n, t, u: (f"\n![Abb. {nr[n]}: {t}](abbildungen/{n})\n\n*Abb. {nr[n]}: {u}*\n"  # noqa: E731
+    # Bild und Unterschrift in einem Absatz, damit sie beim Drucken nicht auf zwei Seiten getrennt werden
+    bild = lambda n, t, u: (f"\n![Abb. {nr[n]}: {t}](abbildungen/{n})\n*Abb. {nr[n]}: {u}*\n"  # noqa: E731
                             if n in abb else "")
     abb_nr = lambda n: f"Abb. {nr[n]}" if n in nr else "die Abbildung"  # noqa: E731
     stunden_von = tdm(np.datetime64(d["stunden_von"]))

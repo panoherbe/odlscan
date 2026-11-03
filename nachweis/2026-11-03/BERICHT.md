@@ -64,7 +64,6 @@ die 28 Jahre und 10-Minuten-Werte der internen Datenbank.
   `manifest.jsonl`; ausgewertet wird nur aus diesen Dateien.
 
 ![Abb. 1: Karte der Sonden](abbildungen/abb1_karte.png)
-
 *Abb. 1: Lage der 1.560 Sonden, Farbe = Median der Tageswerte je Sonde. Die Farbskala ist auf das 2. bis 98. Perzentil begrenzt; Sonden darunter oder darüber tragen die Endfarbe (Spitzen an der Skala). Was daraus folgt: Das Niveau unterscheidet sich zwischen den Sonden um mehr als den Faktor 4 (0,044 bis 0,217 µSv/h); jede Prüfung arbeitet deshalb relativ zur eigenen Basislinie der Sonde.*
 
 ## 3 Verfahren
@@ -128,7 +127,6 @@ Verhältnis zwischen etwa 0,35 und 0,7; hält der Regen an, liegt es höher. Die
 den 10-Minuten-Werten der BfS-Datenbank bestimmen.
 
 ![Abb. 2: Beispiel Regenereignis](abbildungen/abb2_regen.png)
-
 *Abb. 2: Beispiel einer Erhöhung mit Regen: das Regenereignis mit dem höchsten z-Wert in dieser Woche. Linke Achse ODL mit Basislinie und Schwelle, rote Punkte = als Erhöhung markierte Stunden; rechte Achse Niederschlag der nächsten DWD-Station. Was daraus folgt: Regen erzeugt genau die Form, die eine Schwellenprüfung auslöst; erst die Niederschlagsinformation macht daraus „regenbedingt“ statt „lokal, prüfen“.*
 
 **Eingebaute Fehler:**
@@ -155,7 +153,6 @@ Präzision der Prüfer-Meldungen je Durchlauf: 62 %, 63 %, 64 %, 61 %, 62 % (ein
 Untergrenze: Auch die „anderen“ Meldungen können echte Auffälligkeiten sein.
 
 ![Abb. 3: Trefferquote Stundenwerte](abbildungen/abb3_stundentest.png)
-
 *Abb. 3: Trefferquote je eingebautem Fehler über alle fünf Durchläufe, mit 95-%-Vertrauensbereich (Wilson); n = Zahl der eingebauten Fehler, Drift grau. Was daraus folgt: Sprunghafte Fehler ab 20 % der ODL findet schon die einfache Prüfung sicher. Eine schleichende Drift zieht die 24-Stunden-Basislinie mit und bleibt bei 10 bis 20 % meist unerkannt; dafür braucht es einen Erwartungswert aus Nachbarsonden und Wetter statt aus der eigenen Vergangenheit.*
 
 **Voralarme (nachgebildet):** 25 Ereignisse in sieben Tagen, im Median
@@ -194,7 +191,6 @@ eine Standortänderung oder Bewuchs dahintersteht, zeigen erst die internen Stam
 | 10,0 % | 240 | 57 % | 96 % | 91 % |
 
 ![Abb. 4: Sprungerkennung](abbildungen/abb4_spruenge.png)
-
 *Abb. 4: Trefferquote für eingebaute Stufen in Tagesreihen, drei Varianten mit demselben Alarmbudget, Fehlerbalken 95 % (Wilson), Punkte zur Lesbarkeit leicht versetzt; rote Linie 80 %. Was daraus folgt: Der Vergleich gegen den Median der Nachbarn findet eine Stufe von 10 % zu 96 % statt 57 %, eine von 5 % zu 36 % statt 14 %. Die Auswahl nach Korrelation der Tagesänderungen ist schlechter (91 % und 22 %), vermutlich weil diese Änderungen von Rundung (0,001 µSv/h) und Zählrauschen geprägt sind.*
 
 **Schnee:**
@@ -208,7 +204,6 @@ eine Standortänderung oder Bewuchs dahintersteht, zeigen erst die internen Stam
 | schneefrei (Vergleich, jeder 7. Tag) | 49.849 | – | 0,0 % | −1,2 % bis 1,6 % |
 
 ![Abb. 5: Schnee-Effekt](abbildungen/abb5_schnee.png)
-
 *Abb. 5: Abweichung der Tages-ODL an Tagen mit Schneedecke vom Median der schneefreien Tage derselben Sonde (± 15 Tage), nach Schneehöhe an der nächsten DWD-Station; Kasten = mittlere Hälfte, Linie = Median, Antennen ohne Ausreißer. Was daraus folgt: Die Abweichung wächst mit der Schneehöhe, wie es die Abschirmung der Bodenstrahlung erwarten lässt; gezeigt ist ein Zusammenhang, kein Nachweis der Ursache. Die Klasse über 30 cm beruht auf 156 Sonden-Tagen an 52 Sonden.*
 
 ## 6 Grenzen
