@@ -1,0 +1,397 @@
+{
+ "version": "0.2.0",
+ "ausgewertet": "2026-11-03T16:17:24Z",
+ "rohablage": "2026-11-02",
+ "umgebung": {
+  "python": "3.12.13",
+  "system": "Linux-7.0.0-31-generic-x86_64-with-glibc2.41",
+  "numpy": "2.5.4"
+ },
+ "daten": {
+  "sonden_in_betrieb": 1560,
+  "mit_stundenwerten": 1560,
+  "mit_tageswerten": 1560,
+  "stunden_von": "2026-10-26T22",
+  "stunden_bis": "2026-11-02T21",
+  "stunden": 168,
+  "tage_von": "2025-11-02",
+  "tage_bis": "2026-11-01",
+  "tage": 365,
+  "stundenwerte": 261210,
+  "tageswerte": 554712,
+  "vollstaendig_stunden": 0.9966804029304029,
+  "vollstaendig_tage": 0.9742044257112751,
+  "odl_median": 0.106,
+  "odl_p5": 0.074,
+  "odl_p95": 0.143,
+  "odl_min": 0.044,
+  "odl_max": 0.217,
+  "mit_regenmesser_stunde": 1512,
+  "mit_schneemessung_tag": 1339,
+  "letzte_stunde_mit_regenmesser": "2026-11-01T23",
+  "abruf": {
+   "eintraege": 5297,
+   "abrufe": 5295,
+   "abrufe_bfs": 3121,
+   "abrufe_dwd": 2174,
+   "mb_wie_geliefert": 389.274297,
+   "mb_ablage": 72.954361
+  }
+ },
+ "stunden": {
+  "bewertete_stundenwerte": 223912,
+  "ereignisse": {
+   "lokal": 20,
+   "regional": 139,
+   "regen": 842,
+   "haenger": 61,
+   "absenkung": 24
+  },
+  "ereignisse_mit_messer": {
+   "lokal": 10,
+   "regional": 23,
+   "regen": 842,
+   "haenger": 54,
+   "absenkung": 23
+  },
+  "erhoehungen_ohne_messer_je_tag": {
+   "2026-10-27": 11,
+   "2026-10-28": 26,
+   "2026-10-29": 2,
+   "2026-11-01": 6,
+   "2026-11-02": 81
+  },
+  "je_1000_stundenwerte": {
+   "lokal": 0.08932080460180786,
+   "regional": 0.6207795919825646,
+   "regen": 3.7604058737361106,
+   "haenger": 0.27242845403551397,
+   "absenkung": 0.10718496552216943
+  },
+  "erhoehungen_mit_regenmesser": 875,
+  "anteil_regen_an_erhoehungen_mit_messer": 0.9622857142857143,
+  "abkling_median": {
+   "regen": 0.5683800623052959,
+   "regional": 0.625,
+   "lokal": 0.6296296296296303
+  },
+  "abkling_n": {
+   "regen": 840,
+   "regional": 135,
+   "lokal": 19
+  },
+  "voralarme": 25,
+  "voralarme_regen_ueberwiegend": 13,
+  "voralarme_klassen": {
+   "regen": 13,
+   "trocken": 3,
+   "gemischt": 0,
+   "ohne_messer": 9
+  },
+  "voralarme_sonden_median": 3.0,
+  "test": {
+   "je_fehler": {
+    "spitze|0.05": {
+     "n": 104,
+     "erkannt": 4,
+     "richtig_eingeordnet": 4,
+     "trefferquote": 0.038461538461538464,
+     "einordnung": 1.0
+    },
+    "spitze|0.1": {
+     "n": 110,
+     "erkannt": 58,
+     "richtig_eingeordnet": 56,
+     "trefferquote": 0.5272727272727272,
+     "einordnung": 0.9655172413793104
+    },
+    "spitze|0.2": {
+     "n": 100,
+     "erkannt": 100,
+     "richtig_eingeordnet": 100,
+     "trefferquote": 1.0,
+     "einordnung": 1.0
+    },
+    "spitze|0.5": {
+     "n": 111,
+     "erkannt": 111,
+     "richtig_eingeordnet": 108,
+     "trefferquote": 1.0,
+     "einordnung": 0.972972972972973
+    },
+    "stufe|0.05": {
+     "n": 114,
+     "erkannt": 2,
+     "richtig_eingeordnet": 1,
+     "trefferquote": 0.017543859649122806,
+     "einordnung": 0.5
+    },
+    "stufe|0.1": {
+     "n": 122,
+     "erkannt": 70,
+     "richtig_eingeordnet": 66,
+     "trefferquote": 0.5737704918032787,
+     "einordnung": 0.9428571428571428
+    },
+    "stufe|0.2": {
+     "n": 115,
+     "erkannt": 115,
+     "richtig_eingeordnet": 112,
+     "trefferquote": 1.0,
+     "einordnung": 0.9739130434782609
+    },
+    "drift|0.1": {
+     "n": 107,
+     "erkannt": 7,
+     "richtig_eingeordnet": 3,
+     "trefferquote": 0.06542056074766354,
+     "einordnung": 0.42857142857142855
+    },
+    "drift|0.2": {
+     "n": 82,
+     "erkannt": 50,
+     "richtig_eingeordnet": 44,
+     "trefferquote": 0.6097560975609756,
+     "einordnung": 0.88
+    },
+    "drift|0.4": {
+     "n": 94,
+     "erkannt": 92,
+     "richtig_eingeordnet": 85,
+     "trefferquote": 0.9787234042553191,
+     "einordnung": 0.9239130434782609
+    },
+    "absenkung|0.1": {
+     "n": 95,
+     "erkannt": 67,
+     "richtig_eingeordnet": 67,
+     "trefferquote": 0.7052631578947368,
+     "einordnung": 1.0
+    },
+    "absenkung|0.2": {
+     "n": 118,
+     "erkannt": 118,
+     "richtig_eingeordnet": 118,
+     "trefferquote": 1.0,
+     "einordnung": 1.0
+    },
+    "absenkung|0.4": {
+     "n": 113,
+     "erkannt": 113,
+     "richtig_eingeordnet": 113,
+     "trefferquote": 1.0,
+     "einordnung": 1.0
+    },
+    "haenger|0.0": {
+     "n": 115,
+     "erkannt": 115,
+     "richtig_eingeordnet": 115,
+     "trefferquote": 1.0,
+     "einordnung": 1.0
+    }
+   },
+   "praezision": [
+    {
+     "lauf": 0,
+     "eingebaut": 300,
+     "treffer_meldungen": 226,
+     "andere_meldungen": 137,
+     "praezision": 0.6225895316804407
+    },
+    {
+     "lauf": 1,
+     "eingebaut": 300,
+     "treffer_meldungen": 233,
+     "andere_meldungen": 138,
+     "praezision": 0.628032345013477
+    },
+    {
+     "lauf": 2,
+     "eingebaut": 300,
+     "treffer_meldungen": 216,
+     "andere_meldungen": 124,
+     "praezision": 0.6352941176470588
+    },
+    {
+     "lauf": 3,
+     "eingebaut": 300,
+     "treffer_meldungen": 211,
+     "andere_meldungen": 137,
+     "praezision": 0.6063218390804598
+    },
+    {
+     "lauf": 4,
+     "eingebaut": 300,
+     "treffer_meldungen": 230,
+     "andere_meldungen": 142,
+     "praezision": 0.6182795698924731
+    }
+   ],
+   "sonden_mit_ruhigen_stellen": 1500
+  }
+ },
+ "tage": {
+  "kandidaten_roh": 157,
+  "kandidaten_nachbarn": 160,
+  "sonden_mit_kandidat_roh": 156,
+  "sonden_mit_kandidat_nachbarn": 154,
+  "sonden_mit_referenz": 1546,
+  "sonden_mit_korrelationsreferenz": 1529,
+  "alarm_anteil": 0.1,
+  "strafe_kalibriert": {
+   "roh": 856.45260300308,
+   "nachbarn": 408.0673238302566,
+   "korrelation": 448.64080212476495
+  },
+  "sonden_mit_sprung_bei_strafe_3": {
+   "roh": 1548,
+   "nachbarn": 1521
+  },
+  "kleinste_stufe_80_roh": null,
+  "kleinste_stufe_80_nachbarn": 0.1,
+  "test": {
+   "je_stufe": {
+    "roh": {
+     "0.005": {
+      "n": 258,
+      "erkannt": 3,
+      "trefferquote": 0.011627906976744186
+     },
+     "0.01": {
+      "n": 239,
+      "erkannt": 2,
+      "trefferquote": 0.008368200836820083
+     },
+     "0.02": {
+      "n": 246,
+      "erkannt": 9,
+      "trefferquote": 0.036585365853658534
+     },
+     "0.03": {
+      "n": 261,
+      "erkannt": 10,
+      "trefferquote": 0.038314176245210725
+     },
+     "0.05": {
+      "n": 256,
+      "erkannt": 36,
+      "trefferquote": 0.140625
+     },
+     "0.1": {
+      "n": 240,
+      "erkannt": 138,
+      "trefferquote": 0.575
+     }
+    },
+    "nachbarn": {
+     "0.005": {
+      "n": 258,
+      "erkannt": 1,
+      "trefferquote": 0.003875968992248062
+     },
+     "0.01": {
+      "n": 239,
+      "erkannt": 3,
+      "trefferquote": 0.012552301255230125
+     },
+     "0.02": {
+      "n": 246,
+      "erkannt": 13,
+      "trefferquote": 0.052845528455284556
+     },
+     "0.03": {
+      "n": 261,
+      "erkannt": 33,
+      "trefferquote": 0.12643678160919541
+     },
+     "0.05": {
+      "n": 256,
+      "erkannt": 93,
+      "trefferquote": 0.36328125
+     },
+     "0.1": {
+      "n": 240,
+      "erkannt": 231,
+      "trefferquote": 0.9625
+     }
+    },
+    "korrelation": {
+     "0.005": {
+      "n": 258,
+      "erkannt": 2,
+      "trefferquote": 0.007751937984496124
+     },
+     "0.01": {
+      "n": 239,
+      "erkannt": 3,
+      "trefferquote": 0.012552301255230125
+     },
+     "0.02": {
+      "n": 246,
+      "erkannt": 0,
+      "trefferquote": 0.0
+     },
+     "0.03": {
+      "n": 261,
+      "erkannt": 21,
+      "trefferquote": 0.08045977011494253
+     },
+     "0.05": {
+      "n": 256,
+      "erkannt": 57,
+      "trefferquote": 0.22265625
+     },
+     "0.1": {
+      "n": 240,
+      "erkannt": 218,
+      "trefferquote": 0.9083333333333333
+     }
+    }
+   },
+   "sonden": 1489
+  },
+  "schnee": {
+   "1–5 cm": {
+    "tage": 19504,
+    "sonden": 1287,
+    "median": -0.011904761904761862,
+    "q25": -0.03296703296703296,
+    "q75": 0.009433962264151052
+   },
+   "6–15 cm": {
+    "tage": 11679,
+    "sonden": 1116,
+    "median": -0.035175879396984966,
+    "q25": -0.0634533488192025,
+    "q75": -0.011494252873563204
+   },
+   "16–30 cm": {
+    "tage": 1866,
+    "sonden": 462,
+    "median": -0.06976744186046502,
+    "q25": -0.10141735299751009,
+    "q75": -0.04065040650406504
+   },
+   "> 30 cm": {
+    "tage": 156,
+    "sonden": 52,
+    "median": -0.11587982832618032,
+    "q25": -0.1651575588352613,
+    "q75": -0.06590384773832075
+   },
+   "schneefrei": {
+    "tage": 49849,
+    "median": 0.0,
+    "q25": -0.011627906976743985,
+    "q75": 0.016000000000000014
+   }
+  }
+ },
+ "laufzeit_s": {
+  "einlesen_s": 24.905405058991164,
+  "stunden_pruefung_s": 0.6579401720082387,
+  "stunden_test_s": 1.1901912129833363,
+  "tage_pruefung_s": 3.3168158140033484,
+  "tage_test_s": 0.4426271799602546
+ }
+}

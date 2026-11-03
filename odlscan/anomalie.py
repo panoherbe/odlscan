@@ -11,9 +11,11 @@ Verfahren je Sonde (bewusst einfach und nachvollziehbar, damit es als Referenz f
 
 Einordnung einer Erhöhung: „regen“, wenn die nächste DWD-Station (≤ 20 km) in den Stunden t−2 … t+1 mindestens
 0,1 mm meldet; sonst „regional“, wenn mindestens eine Nachbarsonde (≤ 30 km) in t−1 … t+1 z ≥ 3 zeigt; sonst „lokal“
-(technisch prüfen). Physikalischer Zusatz: Regen wäscht Radon-Folgeprodukte (Pb-214, Bi-214, Halbwertszeiten
-26,8 und 19,9 min) aus; die Erhöhung klingt nach Regenende binnen Stunden ab. Das Abklingverhältnis
-(x(t+1) − b) / (x(t) − b) an der Spitze wird je Ereignis mitgeschrieben.
+(technisch prüfen). Ob der Regenmesser im Fenster überhaupt Werte hat, wird je Ereignis mitgeschrieben: ohne
+Messerdaten heißt „kein Regen gemeldet“ nicht „trocken“. Physikalischer Zusatz: Regen wäscht Radon-Folgeprodukte
+(Pb-214, Bi-214, Halbwertszeiten 26,8 und 19,9 min) aus; nach Regenende sind von der Erhöhung nach einer Stunde
+rund 40 %, nach zwei Stunden gut 10 % übrig (Bateman-Rechnung, nach Dosisbeitrag gewichtet). Das
+Abklingverhältnis (x(t+1) − b) / (x(t) − b) an der Spitze wird je Ereignis mitgeschrieben.
 """
 
 from __future__ import annotations
@@ -144,8 +146,9 @@ def voralarme(erg: list[dict], regen: np.ndarray, nb30: list[np.ndarray]) -> lis
     Knoten sind (Sonde, Stunde) mit Erhöhung; Kanten verbinden Knoten derselben oder benachbarter Sonden mit
     höchstens einer Stunde Abstand. Ein Voralarm ist eine Zusammenhangskomponente mit mindestens zwei Sonden.
     Die Schwelle ist hier z ≥ 4, nicht der standortspezifische Schwellenwert des BfS (nicht öffentlich).
+    Je Voralarm: Anteil der Knoten mit Regen, mit Messerdaten und mit Messerdaten ohne Regen (voralarm_klasse).
     """
-    nass, _ = regen_maske(regen)
+    nass, messer = regen_maske(regen)
     oben = np.array([e["oben"] for e in erg])
     knoten = [(int(i), int(t)) for i, t in zip(*np.nonzero(oben))]
     index = {k: n for n, k in enumerate(knoten)}
@@ -172,5 +175,18 @@ def voralarme(erg: list[dict], regen: np.ndarray, nb30: list[np.ndarray]) -> lis
         if len(sonden) < 2:
             continue
         aus.append({"sonden": len(sonden), "knoten": len(g), "von": min(t for _, t in g),
-                    "bis": max(t for _, t in g), "regen_anteil": float(np.mean([nass[i, t] for i, t in g]))})
+                    "bis": max(t for _, t in g), "regen_anteil": float(np.mean([nass[i, t] for i, t in g])),
+                    "messer_anteil": float(np.mean([messer[i, t] for i, t in g])),
+                    "trocken_anteil": float(np.mean([messer[i, t] and not nass[i, t] for i, t in g]))})
     return sorted(aus, key=lambda v: v["von"])
+
+
+def voralarm_klasse(v: dict) -> str:
+    """„regen“: Regen an der Mehrheit der Knoten; „ohne_messer“: an der Mehrheit fehlen Messerdaten (Regen ist dann
+    weder belegt noch ausgeschlossen); „trocken“: an der Mehrheit meldet der Messer Werte ohne Regen; sonst
+    „gemischt“."""
+    if v["regen_anteil"] >= 0.5:
+        return "regen"
+    if v["messer_anteil"] < 0.5:
+        return "ohne_messer"
+    return "trocken" if v["trocken_anteil"] >= 0.5 else "gemischt"

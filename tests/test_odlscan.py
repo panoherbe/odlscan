@@ -71,6 +71,45 @@ def test_voralarm_zwei_nachbarn():
     assert len(va) == 1 and va[0]["sonden"] == 2
 
 
+def test_voralarm_einordnung_nach_regenmesser():
+    a, b = reihe(seed=1), reihe(seed=2)
+    a[90] += 0.04
+    b[91] += 0.04
+    erg = anomalie.erkennen_alle(np.array([a, b]))
+    nb = geo.nachbarn([50.0, 50.1], [8.0, 8.0], 30)
+    ohne = anomalie.voralarme(erg, np.full((2, len(a)), np.nan), nb)
+    trocken = anomalie.voralarme(erg, np.zeros((2, len(a))), nb)
+    nass = np.zeros((2, len(a)))
+    nass[:, 89:92] = 0.8
+    regen = anomalie.voralarme(erg, nass, nb)
+    # fehlende Messerdaten zählen nicht als „kein Regen“
+    assert [anomalie.voralarm_klasse(v) for v in ohne + trocken + regen] == ["ohne_messer", "trocken", "regen"]
+    assert ohne[0]["messer_anteil"] == 0 and trocken[0]["trocken_anteil"] == 1
+
+
+def test_referenz_korrelation_waehlt_aehnliche_nachbarn():
+    rng = np.random.default_rng(8)
+    gemeinsam = np.cumsum(rng.normal(0, 0.01, 365))
+    logodl = np.array([gemeinsam + rng.normal(0, 0.002, 365) for _ in range(4)]
+                      + [np.cumsum(rng.normal(0, 0.01, 365)) for _ in range(3)])
+    kandidaten = [np.array([j for j in range(7) if j != i]) for i in range(7)]
+    ref = trend.referenz_korrelation(logodl, kandidaten, anzahl=3)
+    assert np.allclose(ref[0], np.median(logodl[1:4], axis=0))
+
+
+def test_vergleichsvariante_aendert_die_zufallsfolge_nicht():
+    rng = np.random.default_rng(9)
+    logodl = rng.normal(np.log(0.1), 0.01, (30, 365))
+    ref = logodl + rng.normal(0, 0.005, logodl.shape)
+    schnee = np.zeros_like(logodl)
+    strafe = {"roh": 3.0, "nachbarn": 3.0, "korrelation": 3.0}
+    ohne = bewertung.tages_test(logodl, ref, schnee, strafe, durchlaeufe=2, je_lauf=10)
+    mit = bewertung.tages_test(logodl, ref, schnee, strafe, durchlaeufe=2, je_lauf=10, ref_korrelation=ref)
+    assert ohne["je_stufe"]["roh"] == mit["je_stufe"]["roh"]
+    assert ohne["je_stufe"]["nachbarn"] == mit["je_stufe"]["nachbarn"]
+    assert sum(z["n"] for z in mit["je_stufe"]["korrelation"].values()) == 20
+
+
 def test_sprung_wird_gefunden():
     rng = np.random.default_rng(5)
     y = rng.normal(0, 0.01, 365)

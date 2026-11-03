@@ -10,6 +10,8 @@ Trefferquote für eingebaute Stufen verglichen. Zwei Varianten:
 - „gegen Nachbarn“: log(ODL) der Sonde minus Median der log(ODL) ihrer Nachbarn (≤ 50 km, Höhenunterschied
   ≤ 300 m, mindestens 3). Regionale Einflüsse (Bodenfeuchte, Schnee, Witterung) heben sich dabei weitgehend auf,
   ein Sondenwechsel nicht. Das ist das in der Klimatologie übliche Homogenisieren gegen Referenzreihen.
+- „Korrelations-Nachbarn“ (Vergleichsvariante, im Bericht als verworfen geführt): Referenz aus den fünf Sonden im
+  Umkreis von 75 km, deren Tagesänderungen am stärksten mit denen der Sonde korrelieren.
 
 Tage mit Schneedecke an der nächsten DWD-Station werden vor der Segmentierung ausgeblendet.
 
@@ -32,6 +34,9 @@ NACHBAR_DH = 300.0
 MIN_NACHBARN = 3
 SCHNEE_FENSTER = 15
 SCHNEE_KLASSEN = [(1, 5), (6, 15), (16, 30), (31, 1000)]
+KORR_KM = 75.0
+KORR_ANZAHL = 5
+KORR_MIN_TAGE = 200
 
 
 def _sigma(y: np.ndarray) -> float:
@@ -116,6 +121,32 @@ def referenz(logodl: np.ndarray, nb: list[np.ndarray]) -> np.ndarray:
         for i, j in enumerate(nb):
             if len(j) >= MIN_NACHBARN:
                 aus[i] = np.nanmedian(logodl[j], axis=0)
+    return aus
+
+
+def referenz_korrelation(logodl: np.ndarray, kandidaten: list[np.ndarray], anzahl: int = KORR_ANZAHL,
+                         min_tage: int = KORR_MIN_TAGE) -> np.ndarray:
+    """Median der log(ODL) der `anzahl` Kandidaten, deren Tagesänderungen am stärksten mit denen der Sonde
+    korrelieren (Pearson, mindestens `min_tage` gemeinsame Tage); NaN, wenn weniger als MIN_NACHBARN übrig bleiben."""
+    d = np.diff(logodl, axis=1)
+    aus = np.full(logodl.shape, np.nan)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", RuntimeWarning)
+        for i, j in enumerate(kandidaten):
+            if len(j) < MIN_NACHBARN:
+                continue
+            ok = np.isfinite(d[i]) & np.isfinite(d[j])
+            n = ok.sum(axis=1)
+            x = np.where(ok, d[i], np.nan)
+            y = np.where(ok, d[j], np.nan)
+            xm = x - np.nanmean(x, axis=1, keepdims=True)
+            ym = y - np.nanmean(y, axis=1, keepdims=True)
+            r = np.nansum(xm * ym, axis=1) / np.sqrt(np.nansum(xm ** 2, axis=1) * np.nansum(ym ** 2, axis=1))
+            r = np.where((n >= min_tage) & np.isfinite(r), r, -np.inf)
+            wahl = np.argsort(-r)[:anzahl]
+            beste = j[wahl[np.isfinite(r[wahl])]]
+            if len(beste) >= MIN_NACHBARN:
+                aus[i] = np.nanmedian(logodl[beste], axis=0)
     return aus
 
 

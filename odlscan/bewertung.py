@@ -118,11 +118,16 @@ def stunden_test(odl: np.ndarray, erg: list[dict], regen: np.ndarray, nb: list[n
 
 
 def tages_test(logodl: np.ndarray, ref: np.ndarray, schnee: np.ndarray, strafe: dict[str, float],
-               durchlaeufe: int = 5, je_lauf: int = 300, min_tage: int = 300) -> dict:
+               durchlaeufe: int = 5, je_lauf: int = 300, min_tage: int = 300,
+               ref_korrelation: np.ndarray | None = None) -> dict:
+    """Geeignet sind Sonden mit Reihe und Nachbarreferenz an mindestens `min_tage` Tagen. Die Vergleichsvariante
+    „korrelation“ (falls übergeben) läuft auf denselben eingebauten Stufen, nur wo ihre Referenz ebenso lang ist;
+    die Zufallsfolge ist dieselbe wie ohne sie."""
     n = logodl.shape[1]
     geeignet = [i for i in range(len(logodl)) if np.isfinite(logodl[i]).sum() >= min_tage
                 and np.isfinite(ref[i]).sum() >= min_tage]
-    erg = {v: {f"{s}": {"n": 0, "erkannt": 0} for s in TAGES_STUFEN} for v in ("roh", "nachbarn")}
+    varianten = ("roh", "nachbarn") + (("korrelation",) if ref_korrelation is not None else ())
+    erg = {v: {f"{s}": {"n": 0, "erkannt": 0} for s in TAGES_STUFEN} for v in varianten}
     for lauf in range(durchlaeufe):
         rng = np.random.default_rng(2000 + lauf)
         for i in rng.choice(geeignet, size=min(je_lauf, len(geeignet)), replace=False):
@@ -130,7 +135,10 @@ def tages_test(logodl: np.ndarray, ref: np.ndarray, schnee: np.ndarray, strafe: 
             t0 = int(rng.integers(60, n - 60))
             y = logodl[i].copy()
             y[t0:] += np.log1p(s)
-            for var, r in (("roh", None), ("nachbarn", ref[i])):
+            paare = [("roh", None), ("nachbarn", ref[i])]
+            if ref_korrelation is not None and np.isfinite(ref_korrelation[i]).sum() >= min_tage:
+                paare.append(("korrelation", ref_korrelation[i]))
+            for var, r in paare:
                 sp = trend.spruenge(trend.reihe(y, r, schnee[i]), strafe=strafe[var])
                 z = erg[var][f"{s}"]
                 z["n"] += 1

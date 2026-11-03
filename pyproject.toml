@@ -1,6 +1,6 @@
 [project]
 name = "odlscan"
-version = "0.1.0"
+version = "0.2.0"
 description = "Trend and plausibility analysis on open gamma dose rate (ODL) data of the German Federal Office for Radiation Protection (prototype)"
 readme = "README.md"
 license = "Apache-2.0"
