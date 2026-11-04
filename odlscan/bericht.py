@@ -485,7 +485,7 @@ Abschnitt 8.
 Der Bericht zeigt an echten, öffentlich zugänglichen Messdaten des ODL-Messnetzes, wie eine automatische
 Plausibilitätsprüfung und eine Trendanalyse aufgebaut, getestet und in Zahlen bewertet werden können. Er ist eine
 kleine Vorstudie: Die öffentliche Schnittstelle liefert ein Jahr Tageswerte und sieben Tage Stundenwerte, nicht
-die 28 Jahre und 10-Minuten-Werte der internen Datenbank.
+die vollständige Messhistorie.
 
 ## 2 Daten
 
@@ -513,7 +513,7 @@ die 28 Jahre und 10-Minuten-Werte der internen Datenbank.
 {bild('abb1_karte.png', 'Karte der Sonden', f"Lage der {de(d['sonden_in_betrieb'], 0)} Sonden, Farbe = Median der Tageswerte je Sonde. Die Farbskala ist auf das 2. bis 98. Perzentil begrenzt; Sonden darunter oder darüber tragen die Endfarbe (Spitzen an der Skala). Was daraus folgt: Das Niveau unterscheidet sich zwischen den Sonden um mehr als den Faktor 4 ({de(d['odl_min'], 3)} bis {de(d['odl_max'], 3)} µSv/h); jede Prüfung arbeitet deshalb relativ zur eigenen Basislinie der Sonde.")}
 ## 3 Verfahren
 
-**Stunden (Plausibilität und Voralarme, Bezug AP 3/4).** Basislinie je Sonde: Median der vorausgehenden 24
+**Stunden (Plausibilität und Voralarme).** Basislinie je Sonde: Median der vorausgehenden 24
 Stundenwerte (kausal, also im Betrieb so rechenbar). Streuung: 1,4826 × MAD der Abweichungen, mindestens
 0,002 µSv/h. Markiert wird eine Erhöhung bei z ≥ 4 und mindestens 0,005 µSv/h, eine Absenkung spiegelbildlich, ein
 Hänger bei sechs gleichen Werten in Folge. Eine Erhöhung heißt „regen“, wenn die nächste DWD-Station in t−2 … t+1
@@ -523,7 +523,7 @@ gemeldet“ nicht „trocken“. Die Voralarm-Regel des BfS (zwei Sonden unter 3
 Schwelle) ist mit z ≥ 4 statt der nicht öffentlichen standortspezifischen Schwellen nachgebildet; je Voralarm wird
 gezählt, an wie vielen der beteiligten Sonden und Stunden es regnet, der Messer Werte hat oder trocken meldet.
 
-**Tage (Trends und Sprungstellen, Bezug AP 2).** Binäre Segmentierung des Mittelwerts von log(ODL),
+**Tage (Trends und Sprungstellen).** Binäre Segmentierung des Mittelwerts von log(ODL),
 Mindestsegment 21 Tage, Strafterm c · σ² · ln n (σ aus den Tagesdifferenzen). Echte Tagesreihen sind
 autokorreliert; mit dem üblichen c = 3 hätten {de(tg['sonden_mit_sprung_bei_strafe_3']['roh'], 0)} von
 {de(d['mit_tageswerten'], 0)} Sonden einen Sprung. c wird deshalb je Variante so kalibriert, dass

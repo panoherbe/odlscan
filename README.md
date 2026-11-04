@@ -22,7 +22,7 @@ Rundgangs weiter unten.</sub>
 | Sprungstellen in Tagesreihen finden | gegen den Median der Nachbarsonden: eingebaute Stufe von 10 % zu 96 % gefunden (Reihe allein 57 %), von 5 % zu 36 % (14 %), bei gleichem Alarmbudget |
 | Einflüsse wie Schnee kennen | bei 16–30 cm Schnee im Median 7,0 % niedrigere Tages-ODL (1.866 Sonden-Tage an 462 Sonden), bei mehr als 30 cm 11,6 % (156 Sonden-Tage an 52 Sonden) |
 | Güte gemessen statt behauptet | künstliche Fehler in echte Reihen eingebaut und wiedergefunden, mit 95-%-Vertrauensbereich; Präzision der Meldungen an Prüfende 61 % bis 64 % |
-| Reproduzierbare Ergebnisse | am 03.11.2026 erneut ausgewertet: alle 254 Werte der Ergebnisdatei identisch mit dem Bericht; Auswertung aller Sonden in 31 s (Summe der gemessenen Schritte) |
+| Reproduzierbare Ergebnisse | am 03.11.2026 erneut ausgewertet: alle 254 Werte der Ergebnisdatei identisch mit dem Bericht ([Kontrolllauf](nachweis/2026-11-03/kontrolllauf.txt)); Auswertung aller Sonden in 31 s (Summe der gemessenen Schritte) |
 | Getestet unter Linux und Windows | 16 Tests grün unter Windows und Ubuntu, Python 3.11 bis 3.13 ([GitHub Actions, Lauf vom 03.11.2026](https://github.com/panoherbe/odlscan/actions/runs/41701987286)) |
 | Offen und weiterverwendbar | AGPL-3.0, mit GPL v3 kombinierbar; reines Python mit NumPy und Matplotlib |
 

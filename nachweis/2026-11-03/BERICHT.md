@@ -37,7 +37,7 @@ Abschnitt 8.
 Der Bericht zeigt an echten, öffentlich zugänglichen Messdaten des ODL-Messnetzes, wie eine automatische
 Plausibilitätsprüfung und eine Trendanalyse aufgebaut, getestet und in Zahlen bewertet werden können. Er ist eine
 kleine Vorstudie: Die öffentliche Schnittstelle liefert ein Jahr Tageswerte und sieben Tage Stundenwerte, nicht
-die 28 Jahre und 10-Minuten-Werte der internen Datenbank.
+die vollständige Messhistorie.
 
 ## 2 Daten
 
@@ -68,7 +68,7 @@ die 28 Jahre und 10-Minuten-Werte der internen Datenbank.
 
 ## 3 Verfahren
 
-**Stunden (Plausibilität und Voralarme, Bezug AP 3/4).** Basislinie je Sonde: Median der vorausgehenden 24
+**Stunden (Plausibilität und Voralarme).** Basislinie je Sonde: Median der vorausgehenden 24
 Stundenwerte (kausal, also im Betrieb so rechenbar). Streuung: 1,4826 × MAD der Abweichungen, mindestens
 0,002 µSv/h. Markiert wird eine Erhöhung bei z ≥ 4 und mindestens 0,005 µSv/h, eine Absenkung spiegelbildlich, ein
 Hänger bei sechs gleichen Werten in Folge. Eine Erhöhung heißt „regen“, wenn die nächste DWD-Station in t−2 … t+1
@@ -78,7 +78,7 @@ gemeldet“ nicht „trocken“. Die Voralarm-Regel des BfS (zwei Sonden unter 3
 Schwelle) ist mit z ≥ 4 statt der nicht öffentlichen standortspezifischen Schwellen nachgebildet; je Voralarm wird
 gezählt, an wie vielen der beteiligten Sonden und Stunden es regnet, der Messer Werte hat oder trocken meldet.
 
-**Tage (Trends und Sprungstellen, Bezug AP 2).** Binäre Segmentierung des Mittelwerts von log(ODL),
+**Tage (Trends und Sprungstellen).** Binäre Segmentierung des Mittelwerts von log(ODL),
 Mindestsegment 21 Tage, Strafterm c · σ² · ln n (σ aus den Tagesdifferenzen). Echte Tagesreihen sind
 autokorreliert; mit dem üblichen c = 3 hätten 1.548 von
 1.560 Sonden einen Sprung. c wird deshalb je Variante so kalibriert, dass
@@ -221,7 +221,7 @@ eine Standortänderung oder Bewuchs dahintersteht, zeigen erst die internen Stam
 
 ## 7 Reproduzieren
 
-Code und Nachweis: https://github.com/panoherbe/odlscan (Apache 2.0). Befehle:
+Code und Nachweis: https://github.com/panoherbe/odlscan (AGPL-3.0, bis 04.11.2026 Apache 2.0). Befehle:
 
     pip install ".[plots]"
     odlscan holen --daten daten
@@ -258,3 +258,6 @@ die Vergleichsvariante „Korrelations-Nachbarn“ und die Abrufstatistik; geän
 - **Abbildungen:** nummeriert, mit Unterschrift, Fallzahlen und Vertrauensbereichen, 300 dpi; die begrenzte Farbskala
   in Abb. 1 ist gekennzeichnet, die rechte Achse in Abb. 2 sichtbar (vorher lasen sich ihre Teilstriche wie
   Minuszeichen), der Titel von Abb. 5 behauptet keine Ursache mehr.
+- **Text am 04.11.2026 nachgebessert** (PDF neu gesetzt; Zahlen, Abbildungen und Version unverändert): Abschnitte 1
+  und 3 ohne Bezüge auf Arbeitspakete einer Ausschreibung, Abschnitt 1 nennt die vollständige Messhistorie statt
+  einer Jahreszahl, Abschnitt 7 die Lizenz AGPL-3.0 (bis 04.11.2026 Apache 2.0).

@@ -1,0 +1,20 @@
+Kontrolllauf odlscan 0.2.0: erneute Auswertung derselben Rohablage, Vergleich mit dem veröffentlichten Ergebnis
+================================================================================================================
+
+Zeitpunkt   2026-11-03, Start 20:56:45 UTC
+Rechner     Linux-Server (Ubuntu 24.04), Docker; Image aus dem Dockerfile dieses Repositorys
+Commit      408618d (odlscan 0.2.0, Stand des Berichts in diesem Ordner)
+Rohablage   raw/2026-11-02, dieselbe wie im Bericht, schreibgeschützt eingebunden
+
+Befehl
+  odlscan auswerten --raw /daten/raw/2026-11-02 --aus /nachweis/neu
+
+Ausgabe
+  1560 Sonden ausgewertet, Bericht: /nachweis/neu/BERICHT.md
+
+Vergleich
+  Jeder Wert der neuen ergebnisse.json gegen nachweis/2026-11-03/ergebnisse.json, verschachtelte Felder einzeln,
+  ohne die Felder, die sich von Lauf zu Lauf ändern müssen: ausgewertet (Zeitpunkt), umgebung, laufzeit_s.
+
+Ergebnis
+  254 Werte verglichen, 0 abweichend
