@@ -1,3 +1,6 @@
+> Ersetzt durch [nachweis/2026-11-03](../2026-11-03/PROTOKOLL.md) (0.2.0). Korrektur vom 04.11.2026: Der Linux-Server
+> hat 8 Kerne mit 16 Threads (Intel Core i7-11700B, `lscpu`), nicht „16 Kerne“ wie unten angegeben.
+
 # Testprotokoll odlscan 0.1.0, 02.11.2026
 
 Verfasser: Panagiotis Herbe. Alle Zahlen sind gemessen; Annahmen sind als solche bezeichnet.

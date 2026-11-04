@@ -8,7 +8,7 @@ Bericht; was korrigiert wurde, steht in Abschnitt 8 von `BERICHT.md`.
 
 | | |
 |---|---|
-| Linux | Server mit Ubuntu 24.04.5 LTS, 16 Kerne, 62 GB Arbeitsspeicher, Grafikkarte NVIDIA GeForce RTX 3060 mit 12 GB (`nvidia-smi`, 03.11.2026; von odlscan nicht genutzt, die Auswertung läuft auf der CPU); Docker-Image `python:3.12-slim` (Python 3.12.13, NumPy 2.5.4, Matplotlib 3.11.2; beide Bibliotheken seit 0.2.0 im `Dockerfile` auf diese Versionen festgelegt) |
+| Linux | Server mit Ubuntu 24.04.5 LTS, Intel Core i7-11700B mit 8 Kernen und 16 Threads (`lscpu`, 04.11.2026), 62 GB Arbeitsspeicher, Grafikkarte NVIDIA GeForce RTX 3060 mit 12 GB (`nvidia-smi`, 03.11.2026; von odlscan nicht genutzt, die Auswertung läuft auf der CPU); Docker-Image `python:3.12-slim` (Python 3.12.13, NumPy 2.5.4, Matplotlib 3.11.2; beide Bibliotheken seit 0.2.0 im `Dockerfile` auf diese Versionen festgelegt) |
 | Windows | Tests in GitHub Actions auf `windows-latest` (und `ubuntu-latest`), Python 3.11, 3.12 und 3.13, bei jedem Push: Workflow `.github/workflows/tests.yml`. Das ist ein CI-Lauf auf GitHubs Windows-Server, kein eigener Windows-Rechner. Für 0.2.0 grün: Lauf 41701987286 vom 03.11.2026 (Commit `790b771`), alle sechs Jobs, je 16 Tests (Abschnitt „Windows“ unten); für 0.1.0: Lauf 41533297955 vom 02.11.2026, je 13 Tests. |
 | Daten | Rohablage `raw/2026-11-02/` vom 02.11.2026: BfS-WFS `https://www.imis.bfs.de/ogc/opendata/ows` (Datenlizenz Deutschland – Namensnennung – 2.0), DWD Open Data `https://opendata.dwd.de/climate_environment/CDC/` (CC BY 4.0) |
 
