@@ -1,3 +1,5 @@
+> Ersetzt durch [nachweis/2026-11-03](../2026-11-03/BERICHT.md) (0.2.0); Korrekturen dort in Abschnitt 8.
+
 # Trend- und Plausibilitätsanalyse auf offenen ODL-Daten
 
 **Bericht zu odlscan 0.1.0** · Panagiotis Herbe · ausgewertet 02.11.2026

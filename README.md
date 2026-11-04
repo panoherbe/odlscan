@@ -16,14 +16,14 @@ Rundgangs weiter unten.</sub>
 |---|---|
 | Das ganze Messnetz, echte Daten | 1.560 Sonden in Betrieb; 554.712 Tageswerte (02.11.2025 bis 01.11.2026) und 261.210 Stundenwerte (26.10. bis 02.11.2026), dazu Niederschlag und Schneehöhe des DWD |
 | Eine nachvollziehbare Datenbasis | 5.295 Abrufe bei BfS und DWD, jede Antwort unverändert abgelegt, mit URL, SHA-256 und Abrufzeit; ausgewertet wird nur aus der Ablage |
-| Auffällige Stundenwerte finden | Erhöhung, Absenkung und Hänger gegen die Basislinie der letzten 24 Stunden; eingebaute Spitzen, Stufen und Absenkungen von 20 % der ODL zu 100 % gefunden, von 10 % zu 53 % bis 71 %, Hänger zu 100 % |
+| Auffällige Stundenwerte finden | Erhöhung, Absenkung und Hänger gegen die Basislinie der letzten 24 Stunden; eingebaute Spitzen, Stufen und Absenkungen von 20 % der ODL zu 100 % gefunden, von 10 % zu 53 % bis 71 %, Hänger zu 100 %; eine Drift von 10 % über 24 h nur zu 7 % |
 | Regen von echten Auffälligkeiten trennen | 842 von 875 Erhöhungen, für die der nächste Regenmesser Werte hat, fallen mit Regen zusammen (96 %); wo Messerdaten fehlen, steht das dabei |
 | Voralarme einordnen | Regel nachgebildet (zwei Sonden unter 30 km innerhalb einer Stunde erhöht): 25 Ereignisse in sieben Tagen; 13 mit Regen, 3 gemessen trocken, 9 ohne Messerdaten |
 | Sprungstellen in Tagesreihen finden | gegen den Median der Nachbarsonden: eingebaute Stufe von 10 % zu 96 % gefunden (Reihe allein 57 %), von 5 % zu 36 % (14 %), bei gleichem Alarmbudget |
 | Einflüsse wie Schnee kennen | bei 16–30 cm Schnee im Median 7,0 % niedrigere Tages-ODL (1.866 Sonden-Tage an 462 Sonden), bei mehr als 30 cm 11,6 % (156 Sonden-Tage an 52 Sonden) |
 | Güte gemessen statt behauptet | künstliche Fehler in echte Reihen eingebaut und wiedergefunden, mit 95-%-Vertrauensbereich; Präzision der Meldungen an Prüfende 61 % bis 64 % |
 | Reproduzierbare Ergebnisse | am 03.11.2026 erneut ausgewertet: alle 254 Werte der Ergebnisdatei identisch mit dem Bericht; Auswertung aller Sonden in 31 s (Summe der gemessenen Schritte) |
-| Läuft unter Linux und Windows | 16 Tests grün unter Windows und Ubuntu, Python 3.11 bis 3.13 ([GitHub Actions, Lauf vom 03.11.2026](https://github.com/panoherbe/odlscan/actions/runs/41701987286)) |
+| Getestet unter Linux und Windows | 16 Tests grün unter Windows und Ubuntu, Python 3.11 bis 3.13 ([GitHub Actions, Lauf vom 03.11.2026](https://github.com/panoherbe/odlscan/actions/runs/41701987286)) |
 | Offen und weiterverwendbar | AGPL-3.0, mit GPL v3 kombinierbar; reines Python mit NumPy und Matplotlib |
 
 Messweg, Verfahren und alle Tabellen: [Bericht zu odlscan 0.2.0](nachweis/2026-11-03/BERICHT.md)
@@ -111,7 +111,7 @@ Aussagen zur radiologischen Lage.
 
 ## Lizenz
 
-Ab 04.11.2026 AGPL-3.0. Frühere Stände bis Commit [`62c1223`](https://github.com/panoherbe/odlscan/tree/62c1223) bleiben unter Apache-2.0. Auftraggeber erhalten im Auftrag die vertraglich vereinbarte Lizenz.
+Ab 04.11.2026 AGPL-3.0. Frühere Stände bis Commit [`62c1223`](https://github.com/panoherbe/odlscan/tree/62c1223) bleiben unter Apache-2.0. Auftraggeber erhalten im Auftrag die vertraglich vereinbarte Lizenz. Berichte vor dem 04.11.2026 nennen noch Apache-2.0.
 
 ## Kontakt
 
