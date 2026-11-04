@@ -1,4 +1,5 @@
-> Ersetzt durch [nachweis/2026-11-03](../2026-11-03/BERICHT.md) (0.2.0); Korrekturen dort in Abschnitt 8.
+> Ersetzt durch [nachweis/2026-11-03](../2026-11-03/BERICHT.md) (0.2.0); Korrekturen dort in Abschnitt 8. Text am 04.11.2026
+> nachgebessert.
 
 # Trend- und Plausibilitätsanalyse auf offenen ODL-Daten
 
@@ -33,7 +34,7 @@
 Der Bericht zeigt an echten, öffentlich zugänglichen Messdaten des ODL-Messnetzes, wie eine automatische
 Plausibilitätsprüfung und eine Trendanalyse aufgebaut, getestet und in Zahlen bewertet werden können. Er ist eine
 kleine Vorstudie: Die öffentliche Schnittstelle liefert ein Jahr Tageswerte und sieben Tage Stundenwerte, nicht
-die 28 Jahre und 10-Minuten-Werte der internen Datenbank.
+die vollständige Messhistorie.
 
 ## 2 Daten
 
@@ -59,7 +60,7 @@ die 28 Jahre und 10-Minuten-Werte der internen Datenbank.
 
 ## 3 Verfahren
 
-**Stunden (Plausibilität und Voralarme, Bezug AP 3/4).** Basislinie je Sonde: Median der vorausgehenden 24
+**Stunden (Plausibilität und Voralarme).** Basislinie je Sonde: Median der vorausgehenden 24
 Stundenwerte (kausal, also im Betrieb so rechenbar). Streuung: 1,4826 × MAD der Abweichungen, mindestens
 0,002 µSv/h. Markiert wird eine Erhöhung bei z ≥ 4 und mindestens 0,005 µSv/h, eine Absenkung spiegelbildlich, ein
 Hänger bei sechs gleichen Werten in Folge. Eine Erhöhung heißt „regen“, wenn die nächste DWD-Station in t−2 … t+1
@@ -67,7 +68,7 @@ mindestens 0,1 mm meldet, „regional“, wenn eine Nachbarsonde (≤ 30 km) gle
 Die Voralarm-Regel des BfS (zwei Sonden unter 30 km innerhalb einer Stunde über Schwelle) ist mit z ≥ 4 statt der
 nicht öffentlichen standortspezifischen Schwellen nachgebildet.
 
-**Tage (Trends und Sprungstellen, Bezug AP 2).** Binäre Segmentierung des Mittelwerts von log(ODL),
+**Tage (Trends und Sprungstellen).** Binäre Segmentierung des Mittelwerts von log(ODL),
 Mindestsegment 21 Tage, Strafterm c · σ² · ln n (σ aus den Tagesdifferenzen). Echte Tagesreihen sind
 autokorreliert; mit dem üblichen c = 3 hätten 1.548 von
 1.560 Sonden einen Sprung. c wird deshalb je Variante so kalibriert, dass
