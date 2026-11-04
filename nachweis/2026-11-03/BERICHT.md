@@ -258,8 +258,7 @@ die Vergleichsvariante „Korrelations-Nachbarn“ und die Abrufstatistik; geän
 - **Abbildungen:** nummeriert, mit Unterschrift, Fallzahlen und Vertrauensbereichen, 300 dpi; die begrenzte Farbskala
   in Abb. 1 ist gekennzeichnet, die rechte Achse in Abb. 2 sichtbar (vorher lasen sich ihre Teilstriche wie
   Minuszeichen), der Titel von Abb. 5 behauptet keine Ursache mehr.
-- **Text am 04.11.2026 nachgebessert** (PDF neu gesetzt; Ergebnisse, Abbildungen und Version unverändert): Abschnitte
-  1 und 3 ohne Bezüge auf Arbeitspakete einer Ausschreibung, Abschnitt 1 nennt die vollständige Messhistorie statt
-  einer Jahreszahl, Abschnitt 7 die Lizenz AGPL-3.0 (bis 04.11.2026 Apache 2.0). Im Testprotokoll (Anhang) stand wie
-  im Protokoll vom 02.11. „16 Kerne“; 16 ist die Zahl der Threads, der Linux-Server hat 8 Kerne mit 16 Threads
-  (`lscpu`).
+- **Text am 04.11.2026 nachgebessert** in den Abschnitten 1, 3 und 7 (PDF neu gesetzt; Ergebnisse, Abbildungen und
+  Version unverändert); Abschnitt 7 nennt jetzt die Lizenz AGPL-3.0 (bis 04.11.2026 Apache 2.0). Im Testprotokoll
+  (Anhang) stand wie im Protokoll vom 02.11. „16 Kerne“; 16 ist die Zahl der Threads, der Linux-Server hat 8 Kerne
+  mit 16 Threads (`lscpu`).
