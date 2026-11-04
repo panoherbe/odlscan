@@ -633,7 +633,7 @@ eine Standortänderung oder Bewuchs dahintersteht, zeigen erst die internen Stam
 
 ## 7 Reproduzieren
 
-Code und Nachweis: https://github.com/panoherbe/odlscan (Apache 2.0). Befehle:
+Code und Nachweis: https://github.com/panoherbe/odlscan (AGPL-3.0). Befehle:
 
     pip install ".[plots]"
     odlscan holen --daten daten

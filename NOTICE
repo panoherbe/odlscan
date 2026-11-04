@@ -1,7 +1,8 @@
 odlscan
 Copyright 2026 Panagiotis Herbe
 
-Licensed under the Apache License, Version 2.0 (see LICENSE).
+Licensed under the GNU Affero General Public License, version 3 (AGPL-3.0-only, see LICENSE), from 2026-11-04.
+Versions up to commit 62c1223 were published under the Apache License, Version 2.0, and remain available under it.
 
 The measured results in nachweis/ are derived from open data:
 - Bundesamt für Strahlenschutz (BfS), ODL-Messnetz, Datenlizenz Deutschland – Namensnennung – Version 2.0

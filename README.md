@@ -24,7 +24,7 @@ Rundgangs weiter unten.</sub>
 | Güte gemessen statt behauptet | künstliche Fehler in echte Reihen eingebaut und wiedergefunden, mit 95-%-Vertrauensbereich; Präzision der Meldungen an Prüfende 61 % bis 64 % |
 | Reproduzierbare Ergebnisse | am 03.11.2026 erneut ausgewertet: alle 254 Werte der Ergebnisdatei identisch mit dem Bericht; Auswertung aller Sonden in 31 s (Summe der gemessenen Schritte) |
 | Läuft unter Linux und Windows | 16 Tests grün unter Windows und Ubuntu, Python 3.11 bis 3.13 ([GitHub Actions, Lauf vom 03.11.2026](https://github.com/panoherbe/odlscan/actions/runs/41701987286)) |
-| Offen und weiterverwendbar | Apache 2.0, mit GPL v3 vereinbar; reines Python mit NumPy und Matplotlib |
+| Offen und weiterverwendbar | AGPL-3.0, mit GPL v3 kombinierbar; reines Python mit NumPy und Matplotlib |
 
 Messweg, Verfahren und alle Tabellen: [Bericht zu odlscan 0.2.0](nachweis/2026-11-03/BERICHT.md)
 ([als PDF mit Testprotokoll](https://github.com/panoherbe/odlscan/raw/main/nachweis/2026-11-03/BERICHT.pdf), 10 Seiten) und
@@ -58,8 +58,8 @@ wurde, steht offen in Abschnitt 8 des Berichts.
 - **Auch die negativen Befunde sind dokumentiert:** Eine schleichende Drift findet die einfache Prüfung kaum, das
   Abklingen nach Regen trennt mit Stundenwerten wenig, eine Nachbarauswahl nach Korrelation ist schlechter und
   verworfen. Das spart Projektzeit.
-- **Offen und anschlussfähig:** Apache 2.0 und mit GPL v3 vereinbar; die Bausteine lassen sich in GPL-Software
-  übernehmen.
+- **Offen und anschlussfähig:** AGPL-3.0 und mit GPL-v3-Software kombinierbar (Abschnitt 13 beider Lizenzen); im
+  Auftrag gilt die vertraglich vereinbarte Lizenz.
 
 ## So sieht es aus
 
@@ -90,9 +90,9 @@ wurde, steht offen in Abschnitt 8 des Berichts.
 | 0:38 | **25 Voralarme in sieben Tagen, eingeordnet:** 13 mit Regen an der Mehrheit der beteiligten Sonden · 3 gemessen trocken, Kandidaten für eine genauere Prüfung · 9 ohne Messerdaten, Regen weder belegt noch ausgeschlossen · Folgerung: Niederschlag aus dem Radar würde beide Lücken schließen, Entfernung und Datenende. |
 | 0:43 | **Abbildung 4:** Gegen den Median der Nachbarsonden wird eine Stufe von 10 % zu 96 % gefunden, in der Reihe allein zu 57 %. Stufen von 5 % und weniger bleiben mit einem Jahr Daten meist unentdeckt. |
 | 0:49 | **Abbildung 5:** Bei mehr als 30 cm Schnee liegt die Tages-ODL im Median um 11,6 % niedriger – passend zur Abschirmung der Bodenstrahlung; gezeigt ist ein Zusammenhang, kein Ursachennachweis. |
-| 0:54 | **Geprüft am 03.11.2026:** 16 Tests grün unter Windows und Linux, Python 3.11 bis 3.13 (GitHub Actions) · 254 von 254 Werten der Ergebnisdatei bei erneuter Auswertung identisch · 1.560 Sonden in einem Lauf, nur aus der unveränderten Rohablage · Apache 2.0, mit GPL v3 vereinbar. |
+| 0:54 | **Geprüft am 03.11.2026:** 16 Tests grün unter Windows und Linux, Python 3.11 bis 3.13 (GitHub Actions) · 254 von 254 Werten der Ergebnisdatei bei erneuter Auswertung identisch · 1.560 Sonden in einem Lauf, nur aus der unveränderten Rohablage · AGPL-3.0, mit GPL v3 kombinierbar. |
 | 0:59 | **Was die offenen Daten nicht hergeben:** ein Jahr Tageswerte, keine Aussage zu langfristigen Trends · sieben Tage Stundenwerte, keine 10-Minuten-Werte · die echten Plausibilisierungsentscheidungen sind nicht öffentlich, die Trefferquoten gelten für eingebaute Fehler · bis 20 km zum nächsten Regenmesser, kein Radarniederschlag. |
-| 1:04 | **Selbst prüfen:** Code, Bericht, Testprotokoll und Abrufliste liegen offen. Zwei Befehle holen die Daten und werten sie aus. Apache 2.0. |
+| 1:04 | **Selbst prüfen:** Code, Bericht, Testprotokoll und Abrufliste liegen offen. Zwei Befehle holen die Daten und werten sie aus. AGPL-3.0. |
 
 </details>
 
@@ -109,6 +109,10 @@ Aussagen zur radiologischen Lage.
 | Lernende Verfahren für Drift und Erwartungswerte | weitere Verfahren, mit derselben Messmethode bewertet |
 | Dienste, Schnittstellen und Oberfläche für den Betrieb | nach Ihren Anforderungen, mit Tests unter Linux und Windows |
 
+## Lizenz
+
+Ab 04.11.2026 AGPL-3.0. Frühere Stände bis Commit [`62c1223`](https://github.com/panoherbe/odlscan/tree/62c1223) bleiben unter Apache-2.0. Auftraggeber erhalten im Auftrag die vertraglich vereinbarte Lizenz.
+
 ## Kontakt
 
 Panagiotis Herbe · [panoherbe.com](https://panoherbe.com)
@@ -120,8 +124,8 @@ Panagiotis Herbe · [panoherbe.com](https://panoherbe.com)
 *Prototype for trend and plausibility analysis of the open gamma dose rate data of Germany's Federal Office for
 Radiation Protection (BfS). Documentation in German.*
 
-Reines Python (NumPy, Matplotlib für Abbildungen), getestet unter Linux und Windows. Lizenz Apache 2.0 (mit GPL v3
-kompatibel: der Code darf in GPL-v3-Software übernommen werden).
+Reines Python (NumPy, Matplotlib für Abbildungen), getestet unter Linux und Windows. Lizenz AGPL-3.0 (bis Commit
+`62c1223` Apache-2.0); mit GPL v3 kombinierbar (Abschnitt 13 beider Lizenzen).
 
 ### Was er kann
 
@@ -179,7 +183,7 @@ Verfahren und Messmethodik, keine abschließenden Aussagen zur radiologischen La
   (Datenschnittstelle: https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html)
 - Deutscher Wetterdienst (DWD), Open Data: CC BY 4.0 (https://opendata.dwd.de/climate_environment/CDC/)
 
-Die Rohdaten sind nicht Teil des Repositorys. Code: Apache 2.0 (`LICENSE`, `NOTICE`).
+Die Rohdaten sind nicht Teil des Repositorys. Code: AGPL-3.0 (`LICENSE`, `NOTICE`).
 
 ### Rundgang und Bilder
 
@@ -187,4 +191,4 @@ Aufgenommen am 03.11.2026 mit Playwright (Chromium). Die Auswertung im Terminal 
 `odlscan auswerten` (Commit `408618d`) auf der Rohablage vom 02.11.2026, danach ein Vergleich jeder Zahl der
 Ergebnisdatei mit `nachweis/2026-11-03/ergebnisse.json` (ohne Zeitstempel, Umgebung und Laufzeiten): 254 Werte,
 0 abweichend. Bericht und Abbildungen sind die Dateien aus `nachweis/2026-11-03/`. Untertitel in die Seite
-gezeichnet, ohne Ton.
+gezeichnet, ohne Ton. Die drei Schlusskarten wurden am 04.11.2026 nach dem Lizenzwechsel ersetzt.
